@@ -18,7 +18,7 @@
     "gulp-webp": "^4.0.0",
     "imagemin-jpeg-recompress": "^6.0.0",
     "imagemin-pngquant": "^6.0.0",
-    "npm": "^6.4.1",
+    "npm": "^6.14.6",
     "rimraf": "^2.6.2",
     "sharp": "^0.21.3",
     "webp-converter": "^2.2.2"
