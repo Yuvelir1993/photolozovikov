@@ -21,7 +21,7 @@
     "npm": "^6.4.1",
     "rimraf": "^2.6.2",
     "sharp": "^0.21.3",
-    "webp-converter": "^2.2.2"
+    "webp-converter": "^2.2.8"
   },
   "devDependencies": {
     "gulp-connect-php": "^1.0.3",
