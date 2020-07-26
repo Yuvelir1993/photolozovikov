@@ -1,0 +1,12 @@
+node_modules
+build
+.hg
+.vscode
+.hgignore
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.svg
+*.ico
+*.rar

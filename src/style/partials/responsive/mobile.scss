@@ -1,0 +1,119 @@
+/*------  Responsive ------------------------------------------------------*/
+
+@media only screen and (max-width: 540px) {
+    .logo-holder {
+        padding-left: 10px;
+    }
+    .nav-button-holder {
+        padding-right: 5px;
+    }
+    .page-title h2 {
+        font-size: 20px;
+    }
+    .blog-text {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .blog-text>p:last-of-type {
+        padding-bottom: 10px;
+    }
+    .horizontal_item:last-of-type {
+        margin-bottom: 40px;
+    }
+    .blog-title {
+        padding: 15px 0px;
+    }
+    .widget {
+        margin-bottom: 20px;
+    }
+    .sidebar {
+        margin-top: 10px;
+    }
+    .section-columns {
+        padding-top: 0px;
+        &:before {
+            content: none;
+        }
+    }
+    button.mfp-arrow {
+        opacity: 0.35;
+    }
+    .section-columns-text {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    .item>.zoomimage {
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.31);
+    }
+    .custom-slider-holder a.next-slide,
+    .custom-slider-holder a.prev-slide {
+        opacity: 0.5;
+    }
+    .custom-slider-holder {
+        margin-bottom: 0px;
+    }
+    blockquote {
+        margin-bottom: 10px;
+    }
+    .show-info {
+        left: 10px;
+        bottom: 10px;
+        span {
+            margin-left: 13px;
+            font-size: 10px;
+        }
+    }
+    .zoomimage {
+        top: 20px;
+        right: 30px;
+        opacity: 0.5;
+        background: rgba(0, 0, 0, 0.31);
+    }
+    .team-holder li {
+        float: left;
+        width: 100%;
+        padding: 20px 0;
+    }
+    .gallery-item {
+        width: 100% !important;
+    }
+    .grid-small-pad .grid-item-holder,
+    .grid-big-pad .grid-item-holder {
+        padding: 2px 0 !important;
+    }
+    .fixed-info-container {
+        padding-top: 10px;
+        padding-bottom: 0px;
+    }
+    .header-inner {
+        float: left;
+        width: 100%;
+        padding: 0 10px;
+        padding-top: 10px;
+        position: relative;
+    }
+    .servicses-holder li,
+    .inline-facts {
+        width: 100%;
+    }
+    .gallery-item {
+        width: 100%;
+    }
+    .scroll-page-nav {
+        right: -7px;
+    }
+    .order-holder h3:before {
+        content: none;
+    }
+    #services_collague,
+    #backstages .fa {
+        display: none;
+    }
+    .footer-social li a {
+        padding: 0 10px;
+    }
+}
