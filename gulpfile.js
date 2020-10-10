@@ -58,7 +58,8 @@ const config = {
     logPrefix: "Frontend_Devil"
 };
 
-function fnBuildHTML() {
+function fnBuildHTML ()
+{
     return gulp.src(path.src.html) //Выберем файлы по нужному пути
         .pipe(stripComments()) //Удалим комментарии
         .pipe(rigger()) //Прогоним через rigger
@@ -66,7 +67,8 @@ function fnBuildHTML() {
         .pipe(reload({ stream: true })); //И перезагрузим наш сервер для обновлений
 }
 
-function fnBuildPHP() {
+function fnBuildPHP ()
+{
     return gulp.src(path.src.php) //Выберем файлы по нужному пути
         // .pipe(stripComments()) //Удалим комментарии
         // .pipe(rigger()) //Прогоним через rigger
@@ -74,7 +76,8 @@ function fnBuildPHP() {
         .pipe(reload({ stream: true })); //И перезагрузим наш сервер для обновлений
 }
 
-function fnBuildJS() {
+function fnBuildJS ()
+{
     return gulp.src(path.src.js) //Найдем наш main файл
         .pipe(plumber()) // Не пркращать выполнять 'watch' в случае синтаксической ошибки
         .pipe(rigger()) //Прогоним через rigger
@@ -85,7 +88,8 @@ function fnBuildJS() {
         .pipe(reload({ stream: true })); //И перезагрузим сервер
 }
 
-function fnBuildStyle() {
+function fnBuildStyle ()
+{
     return gulp.src(path.src.style) //Выберем наш main.scss
         // .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(sass({ processImport: false })) //Скомпилируем
@@ -96,13 +100,18 @@ function fnBuildStyle() {
         .pipe(reload({ stream: true }));
 }
 
-function fnBuildFonts() {
+function fnBuildFonts ()
+{
     return gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts));
 }
-
-function fnBuildIMG() {
-    return gulp.src([path.src.img, '!src/img/index/phone/*.jpg']) //Выберем наши картинки
+// const extReplace = require("gulp-ext-replace");
+// Simple task to convert png to webp
+function fnBuildIMG ()
+{
+    // Now is ability to convert to webp
+    const stream = gulp
+        .src([path.src.img, '!src/img/index/phone/*.jpg'])
         .pipe(webp())
         .pipe(gulp.dest(path.build.img)) //И бросим в build
         .pipe(imagemin([
@@ -130,8 +139,8 @@ function fnBuildIMG() {
             //     max: 70,
             // })
         ]))
-        .pipe(gulp.dest(path.build.img)) //И бросим в build
-        .pipe(reload({ stream: true }));
+        .pipe(gulp.dest(path.build.img)); //И бросим в build
+    return stream;
 }
 
 var aImgResponsiveCommonConfig =
@@ -145,7 +154,8 @@ var aImgResponsiveCommonConfig =
     withMetadata: false,
 };
 
-function fnBuildIMG_Responsive() {
+function fnBuildIMG_Responsive ()
+{
     return gulp.src(['src/img/**/*.jpg', '!src/img/index/phone/*.jpg'])
         .pipe(responsive(
             {
@@ -154,7 +164,8 @@ function fnBuildIMG_Responsive() {
                         rename:
                         {
                             // width: 1400,
-                            suffix: '-orig'
+                            // suffix: '-orig'
+                            suffix: ''
                         }
                     },
                     {
@@ -179,10 +190,12 @@ function fnBuildIMG_Responsive() {
                             suffix: '-350px'
                         }
                     }]
-            }, aImgResponsiveCommonConfig)).pipe(gulp.dest(path.build.img)); //И бросим в build
+            }, aImgResponsiveCommonConfig))
+        .pipe(gulp.dest(path.build.img)); //И бросим в build
 }
 
-function fnBuildIMG_Responsive_Phone_Index() {
+function fnBuildIMG_Responsive_Phone_Index ()
+{
     return gulp.src(['src/img/index/phone/*.jpg'])
         .pipe(responsive(
             {
@@ -196,10 +209,12 @@ function fnBuildIMG_Responsive_Phone_Index() {
                             suffix: '-phone'
                         }
                     }]
-            }, aImgResponsiveCommonConfig)).pipe(gulp.dest(path.build.img + 'index/phone/')); //И бросим в build
+            }, aImgResponsiveCommonConfig))
+        .pipe(gulp.dest(path.build.img + 'index/phone/')); //И бросим в build
 }
 
-function watchChanges() {
+function watchChanges ()
+{
     gulp.watch(path.watch.html, fnBuildHTML);
     gulp.watch(path.watch.php, fnBuildPHP);
     gulp.watch(path.watch.style, fnBuildStyle);
@@ -208,11 +223,13 @@ function watchChanges() {
     gulp.watch(path.watch.fonts, fnBuildHTML);
 }
 
-function clean(cb) {
+function clean (cb)
+{
     return rimraf(path.clean, cb);
 }
 
-function webserver() {
+function webserver ()
+{
     return browserSync(config);
 }
 
@@ -233,20 +250,15 @@ var aBlockTaskNames = [
     'style:build',
     'fonts:build',
     /* закомментил что бы занимало меньше времени */
-    // 'images:build',
-    // 'images-responsive:build',
-    // 'images-responsive-phone:build'
+    'images:build',
+    'images-responsive:build',
+    'images-responsive-phone:build'
 ];
 
 gulp.task('clean', clean);
-
 /* закомментил что бы занимало мнеьше времени */
-// gulp.task('build', gulp.series('clean', gulp.parallel(aBlockTaskNames)));
-
-gulp.task('build', gulp.parallel(aBlockTaskNames));
-
+gulp.task('build', gulp.series('clean', gulp.parallel(aBlockTaskNames)));
+// gulp.task('build', gulp.parallel(aBlockTaskNames));
 gulp.task('webserver', webserver);
-
 gulp.task('watch', watchChanges);
-
 gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));
