@@ -17,7 +17,7 @@
     "gulp-watch": "^5.0.1",
     "gulp-webp": "^4.0.1",
     "imagemin-jpeg-recompress": "^7.0.0",
-    "imagemin-pngquant": "^9.0.1",
+    "imagemin-pngquant": "^9.0.2",
     "imagemin-webp": "^6.0.0",
     "npm": "^6.14.9",
     "rimraf": "^3.0.2",
