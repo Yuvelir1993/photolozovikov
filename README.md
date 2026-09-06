@@ -85,14 +85,14 @@ firebase init hosting
 
 When Firebase asks for the public directory, enter `build`. This is a multi-page site, so do not enable the single-page-app rewrite unless the hosting setup specifically requires it. If Firebase asks whether to overwrite an existing `index.html`, keep the generated `build/index.html` and answer accordingly.
 
-For each update, build first and then deploy the generated directory:
+For each update, build once, deploy to staging, verify the staging site, and only then deploy to production:
 
 ```bash
 npx gulp build
+firebase deploy --only hosting --project staging
+# Verify the staging site before continuing.
 firebase deploy --only hosting
 ```
-
-The Firebase CLI uses the `firebase.json` and `.firebaserc` files created during initialization. Keep those files in the repository if other contributors should be able to deploy to the same Firebase project.
 
 ### Contact form limitation
 

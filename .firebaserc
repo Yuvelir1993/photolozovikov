@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "photolozovikov-main",
+    "staging": "photolozovikov-staging"
+  }
+}
