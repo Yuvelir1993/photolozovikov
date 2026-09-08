@@ -205,8 +205,7 @@ function fnBuildIMG_Responsive_Phone_Index ()
                         height: 550,
                         rename:
                         {
-                            // suffix: '-350px'
-                            suffix: '-phone'
+                            suffix: ''
                         }
                     }]
             }, aImgResponsiveCommonConfig))
