@@ -65,6 +65,38 @@ npx gulp build
 
 The generated site is written to `build/`. For example, `src/about.html` becomes `build/about.html`.
 
+### Partial builds
+
+Run only the task for the part of the site you changed:
+
+```bash
+# All HTML pages and templates
+npx gulp html:build
+
+# PHP files
+npx gulp php:build
+
+# JavaScript
+npx gulp js:build
+
+# Sass/CSS
+npx gulp style:build
+
+# Fonts
+npx gulp fonts:build
+
+# Standard image optimization
+npx gulp images:build
+
+# Responsive images for general pages
+npx gulp images-responsive:build
+
+# Responsive homepage phone images
+npx gulp images-responsive-phone:build
+```
+
+`html:build` rebuilds all HTML pages; there is no task for rebuilding only one page. These tasks do not clean `build/` first. Use `npx gulp build` when you need a complete clean rebuild, or `npx gulp watch` to rebuild the relevant task automatically while editing.
+
 To inspect the generated site in a browser, start the local server after building:
 
 ```bash
