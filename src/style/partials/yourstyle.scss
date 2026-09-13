@@ -2,8 +2,21 @@
  Add your custom css styles here
  *******************************************************************************/
 .about-bckg-pattern {
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-    background-size: 12px 12px;
+    background-image:
+        radial-gradient(ellipse 0.8px 1.3px at center, rgba(37, 36, 36, 0.12) 60%, transparent 100%),
+        radial-gradient(ellipse 1.2px 2px at center, rgba(37, 36, 36, 0.14) 60%, transparent 100%),
+        radial-gradient(ellipse 1.6px 2.8px at center, rgba(37, 36, 36, 0.16) 60%, transparent 100%);
+    background-size: 19px 29px, 37px 43px, 59px 71px;
+    background-position: 0 0, 11px 17px, 29px 7px;
+}
+
+.about-intro .subtitle {
+    color: #252424;
+    opacity: 1;
+}
+
+.about-bckg-pattern .separator {
+    background-color: #2d2b2b;
 }
 
 @media only screen and (min-width: 1037px) {
