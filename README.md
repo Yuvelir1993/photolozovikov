@@ -121,6 +121,7 @@ For each update, build once, deploy to staging, verify the staging site, and onl
 
 ```bash
 npx gulp build
+nvm use 20.19.1
 firebase deploy --only hosting --project staging
 # Verify the staging site before continuing.
 firebase deploy --only hosting
