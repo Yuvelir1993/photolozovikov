@@ -5,3 +5,13 @@
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
     background-size: 12px 12px;
 }
+
+@media only screen and (min-width: 1037px) {
+    .about-intro > .section-columns-img {
+        width: 55%;
+    }
+
+    .about-intro > .section-columns-text {
+        width: 45%;
+    }
+}
